@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.MovePosition(rb.position + lookDir * moveSpeed * Time.fixedDeltaTime);
         } 
-        else if (Input.GetKey(KeyCode.S))
+        
+        if (Input.GetKey(KeyCode.S))
         {
             rb.MovePosition(rb.position - lookDir * moveSpeed * Time.fixedDeltaTime);
         }
