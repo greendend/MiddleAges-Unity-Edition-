@@ -4,21 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
     public Camera cam;
 
-    public Vector2 movement;
     public Vector2 mousePos;
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
@@ -30,6 +25,21 @@ public class PlayerMovement : MonoBehaviour
 
         lookDir.Normalize();
 
-        rb.MovePosition(rb.position + lookDir * moveSpeed * Time.fixedDeltaTime);
+        if (Input.GetKey(KeyCode.W))
+        {
+            rb.MovePosition(rb.position + lookDir * moveSpeed * Time.fixedDeltaTime);
+        } 
+        
+        if (Input.GetKey(KeyCode.S))
+        {
+            rb.MovePosition(rb.position - lookDir * moveSpeed * Time.fixedDeltaTime);
+        }
+        //else if (Input.GetKey(KeyCode.A))
+        //{
+            //lookDir.x = -(lookDir.y) * Mathf.Sin(90f * Mathf.Rad2Deg) + (lookDir.x) * Mathf.Cos(90f * Mathf.Rad2Deg);
+            //lookDir.y = (lookDir.y) * Mathf.Cos(90f * Mathf.Rad2Deg) + (lookDir.x) * Mathf.Sin(90f * Mathf.Rad2Deg);
+            //rb.MovePosition(rb.position - lookDir * moveSpeed * Time.fixedDeltaTime);
+        //}
+
     }
 }
