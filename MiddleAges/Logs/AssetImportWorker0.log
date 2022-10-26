@@ -208,3 +208,7 @@ Received Import Request.
   path: Assets/lhst/tiles_ground/ground_map_13.asset
   artifactKey: Guid(16a7ef1404f53674b88a5401a3cdc01a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/lhst/tiles_ground/ground_map_13.asset using Guid(16a7ef1404f53674b88a5401a3cdc01a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f155f5504d6138ca79a220bde8dc24a2') in 0.021359 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010489 seconds.
