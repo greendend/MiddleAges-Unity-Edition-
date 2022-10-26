@@ -17,7 +17,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (hasAuthority)
         {
-            cam = new Camera();
+            cam = Camera.main;
         }
     }
 
