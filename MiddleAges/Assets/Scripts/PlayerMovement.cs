@@ -26,8 +26,9 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (hasAuthority)
         {
+            
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
+            
             lookDirRight = rb.transform.right;
         }
     }
@@ -41,7 +42,7 @@ public class PlayerMovement : NetworkBehaviour
             rb.rotation = angle;
 
             lookDir.Normalize();
-            //lookDirRight.Normalize();
+            lookDirRight.Normalize();
 
             if (Input.GetKey(KeyCode.W))
             {
