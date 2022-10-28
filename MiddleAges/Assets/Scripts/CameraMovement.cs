@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Rigidbody2D rb;
-
-    private void FixedUpdate()
+    void Update()
     {
-        rb.position = GameObject.FindGameObjectWithTag("Player_01").transform.position;
+        if (!this.transform.parent.GetComponent<PlayerMovement>().isLocalPlayer)
+        {
+            gameObject.GetComponent<Camera>().enabled = false;
+            gameObject.GetComponent<AudioListener>().enabled = false;            
+        }
+        else
+        {
+            gameObject.GetComponent<Rigidbody2D>().transform.position = this.transform.parent.GetComponent<PlayerMovement>().transform.position;
+        }
     }
 }

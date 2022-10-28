@@ -15,18 +15,12 @@ public class PlayerMovement : NetworkBehaviour
 
     void Start()
     {
-        if (hasAuthority)
-        {
-            cam = Camera.main;
-        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (hasAuthority)
         {
-            
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             
             lookDirRight = rb.transform.right;
@@ -40,19 +34,10 @@ public class PlayerMovement : NetworkBehaviour
             Vector2 lookDir = mousePos - rb.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg + 90f;
             rb.rotation = angle;
-
+            
             lookDir.Normalize();
             lookDirRight.Normalize();
-
-            if (Input.GetKey(KeyCode.W))
-            {
-                rb.MovePosition(rb.position + lookDir * moveSpeed * Time.fixedDeltaTime);
-            }
-
-            if (Input.GetKey(KeyCode.S))
-            {
-                rb.MovePosition(rb.position - lookDir * moveSpeed * Time.fixedDeltaTime);
-            }
+                        
             if (Input.GetKey(KeyCode.D))
             {
                 rb.MovePosition(rb.position - lookDirRight * moveSpeed * Time.fixedDeltaTime);
@@ -60,6 +45,14 @@ public class PlayerMovement : NetworkBehaviour
             if (Input.GetKey(KeyCode.A))
             {
                 rb.MovePosition(rb.position + lookDirRight * moveSpeed * Time.fixedDeltaTime);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                rb.MovePosition(rb.position - lookDir * moveSpeed * Time.fixedDeltaTime);
+            }
+            if (Input.GetKey(KeyCode.W))
+            {
+                rb.MovePosition(rb.position + lookDir * moveSpeed * Time.fixedDeltaTime);
             }
         }
     }
